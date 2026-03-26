@@ -1,22 +1,20 @@
 public class HelloApp {
     public static void main(String[] args) {
 
-<<<<<<< HEAD
-        String name = (args.length > 0) ? args[0] : "World";
-
-        System.out.println("Hello, " + name + "!");
-
-=======
-        String message;
-
-        if (args.length > 0) {
-            String names = String.join(", ", args);
-            message = "Hello, " + names + "!";
+        if (args.length == 0) {
+            System.out.println("Hello, World!");
         } else {
-            message = "Hello, World!";
-        }
+            StringBuilder nameBuilder = new StringBuilder();
 
-        System.out.println(message);
->>>>>>> feature/UC4-display-multiple-names
+            for (String name : args) {
+                nameBuilder.append(name).append(", ");
+            }
+
+            // Remove trailing ", "
+            if (nameBuilder.length() > 0) {
+                String names = nameBuilder.substring(0, nameBuilder.length() - 2);
+                System.out.println("Hello, " + names + "!");
+            }
+        }
     }
 }
