@@ -1,22 +1,24 @@
 public class HelloApp {
     public static void main(String[] args) {
 
-<<<<<<< HEAD
-        String name = (args.length > 0) ? args[0] : "World";
+        // Case 1: No arguments → default message
+        if (args.length == 0) {
+            System.out.println("Hello, World!");
+        } 
+        else {
+            // Use StringBuilder for efficient string building
+            StringBuilder names = new StringBuilder();
 
-        System.out.println("Hello, " + name + "!");
+            // Enhanced for loop (for-each)
+            for (String name : args) {
+                if (names.length() > 0) {
+                    names.append(", "); // add comma only after first element
+                }
+                names.append(name);
+            }
 
-=======
-        String message;
-
-        if (args.length > 0) {
-            String names = String.join(", ", args);
-            message = "Hello, " + names + "!";
-        } else {
-            message = "Hello, World!";
+            // Final output
+            System.out.println("Hello, " + names + "!");
         }
-
-        System.out.println(message);
->>>>>>> feature/UC4-display-multiple-names
     }
 }
